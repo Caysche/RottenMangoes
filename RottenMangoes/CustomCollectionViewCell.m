@@ -7,6 +7,7 @@
 //
 
 #import "CustomCollectionViewCell.h"
+#import "Movie.h"
 
 @implementation CustomCollectionViewCell
     
@@ -18,4 +19,26 @@
     [self.downloadTask suspend];
 }
 
+-(void)setMovie:(Movie *)movie {
+    _movie = movie;
+    [self performDownloadTask];
+}
+    
+- (void)performDownloadTask {
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    self.downloadTask = [session downloadTaskWithURL:self.movie.imageURL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            UIImage * downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                _movie.localImageURL = location;
+                self.imageView.image = downloadedImage;
+            });
+        }
+    }];
+    
+    
+    [self.downloadTask resume];
+}
 @end

@@ -18,6 +18,7 @@
     @property (nonatomic, strong) NSString *synopsis;
     @property (nonatomic, strong) NSURL *localImageURL;
     @property (nonatomic, strong) NSNumber *iD;
+    @property (nonatomic, strong) NSURL *imageURL;
     
 - (instancetype)initWithTitle:(NSString *)title andURL:(NSURL *)url andRuntime:(NSNumber *)runtime andSynopsis:(NSString *)synopsis andID:(NSNumber *)iD;
     

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Movie;
+
 @interface CustomCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSURLSessionTask *downloadTask;
+@property (strong, nonatomic) Movie *movie;
 @end
