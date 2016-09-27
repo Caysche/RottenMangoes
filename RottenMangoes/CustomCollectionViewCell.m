@@ -9,5 +9,13 @@
 #import "CustomCollectionViewCell.h"
 
 @implementation CustomCollectionViewCell
+    
+-(void)prepareForReuse {
+    [super prepareForReuse];
+    
+    self.imageView.image = nil;
+    
+    [self.downloadTask suspend];
+}
 
 @end

@@ -16,6 +16,7 @@
 		62ADB2BE1D99A66D0082BF30 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2BD1D99A66D0082BF30 /* Movie.m */; };
 		62ADB2C11D99A71F0082BF30 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2C01D99A71F0082BF30 /* DetailedViewController.m */; };
 		62ADB2C41D99ADAA0082BF30 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2C31D99ADAA0082BF30 /* CustomCollectionViewCell.m */; };
+		62ADB2C71D99DEBE0082BF30 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2C61D99DEBE0082BF30 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		62ADB2C01D99A71F0082BF30 /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 		62ADB2C21D99ADAA0082BF30 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		62ADB2C31D99ADAA0082BF30 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		62ADB2C51D99DEBE0082BF30 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		62ADB2C61D99DEBE0082BF30 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				62ADB2BD1D99A66D0082BF30 /* Movie.m */,
 				62ADB2C21D99ADAA0082BF30 /* CustomCollectionViewCell.h */,
 				62ADB2C31D99ADAA0082BF30 /* CustomCollectionViewCell.m */,
+				62ADB2C51D99DEBE0082BF30 /* WebViewController.h */,
+				62ADB2C61D99DEBE0082BF30 /* WebViewController.m */,
 				62ADB2AB1D99A5E20082BF30 /* Main.storyboard */,
 				62ADB2AE1D99A5E20082BF30 /* Assets.xcassets */,
 				62ADB2B01D99A5E20082BF30 /* LaunchScreen.storyboard */,
@@ -167,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62ADB2A71D99A5E20082BF30 /* AppDelegate.m in Sources */,
+				62ADB2C71D99DEBE0082BF30 /* WebViewController.m in Sources */,
 				62ADB2BB1D99A64D0082BF30 /* CustomCollectionViewController.m in Sources */,
 				62ADB2BE1D99A66D0082BF30 /* Movie.m in Sources */,
 				62ADB2C41D99ADAA0082BF30 /* CustomCollectionViewCell.m in Sources */,
@@ -328,6 +334,7 @@
 				62ADB2B81D99A5E20082BF30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

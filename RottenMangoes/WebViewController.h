@@ -1,5 +1,5 @@
 //
-//  DetailedViewController.h
+//  WebViewController.h
 //  RottenMangoes
 //
 //  Created by Cay Cornelius on 26/09/16.
@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 @class Movie;
 
-@interface DetailedViewController : UIViewController
-    
-@property (nonatomic, strong) Movie *movieItem;
+@interface WebViewController : UIViewController
 
+@property (nonatomic, strong) Movie *movieItem;
+    
 @end

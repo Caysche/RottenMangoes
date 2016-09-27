@@ -15,8 +15,10 @@
     @property (nonatomic, strong) NSString *title;
     @property (nonatomic, strong) NSURL *url;
     @property (nonatomic, strong) NSNumber *runtime;
-    @property (nonatomic, strong) UIImage *image;
+    @property (nonatomic, strong) NSString *synopsis;
+    @property (nonatomic, strong) NSURL *localImageURL;
+    @property (nonatomic, strong) NSNumber *iD;
     
-- (instancetype)initWithTitle:(NSString *)title andURL:(NSURL *)url andRuntime:(NSNumber *)runtime andImage:(UIImage *)image;
+- (instancetype)initWithTitle:(NSString *)title andURL:(NSURL *)url andRuntime:(NSNumber *)runtime andSynopsis:(NSString *)synopsis andID:(NSNumber *)iD;
     
 @end

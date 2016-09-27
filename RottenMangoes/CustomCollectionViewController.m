@@ -9,11 +9,13 @@
 #import "CustomCollectionViewController.h"
 #import "Movie.h"
 #import "CustomCollectionViewCell.h"
+#import "DetailedViewController.h"
 
 @interface CustomCollectionViewController ()
     
     @property (nonatomic, strong, readonly) NSURL *rottenTomatoesAPIURL;
     @property (nonatomic, strong) NSMutableArray *objects;
+    @property (nonatomic, strong) NSMutableArray *imageURLArray;
 
 @end
 
@@ -46,10 +48,9 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - Get the rotten tomatoes data through their API
     
 - (void)getMovieData {
-    NSString *urlString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=sr9tdu3checdyayjz85mff8j&page_limit=10";
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSString *urlString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=sr9tdu3checdyayjz85mff8j&page_limit=50";
+
+    NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
@@ -63,25 +64,30 @@ static NSString * const reuseIdentifier = @"Cell";
             
             NSMutableArray *moviesArray = [NSMutableArray array];
             
+            self.imageURLArray = [NSMutableArray array];
+            
             for (NSDictionary *eachMovie in movies){
                 
                 NSString *title = eachMovie[@"title"];
                 NSURL *url = [NSURL URLWithString:eachMovie[@"links"][@"alternate"]];
                 NSNumber *runtime = eachMovie[@"runtime"];
-                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:eachMovie[@"posters"][@"original"]]]];
+                NSURL *imageURL = [NSURL URLWithString:eachMovie[@"posters"][@"original"]];
+                NSString *synopsis = eachMovie[@"synopsis"];
+                NSNumber *iD = eachMovie[@"id"];
                 
-                Movie* aMovie = [[Movie alloc] initWithTitle:title andURL:url andRuntime:runtime andImage:image];
+                Movie* aMovie = [[Movie alloc] initWithTitle:title andURL:url andRuntime:runtime andSynopsis:synopsis andID:iD];
                 
                 NSLog(@"aMovie is %@", aMovie.title);
                 
                 [moviesArray addObject:aMovie];
+                [self.imageURLArray addObject:imageURL];
                 
             }
             
-            self.objects = moviesArray;
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
+
+                self.objects = moviesArray;
                 [self.collectionView reloadData];
                 
             });
@@ -109,14 +115,38 @@ static NSString * const reuseIdentifier = @"Cell";
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell
+
+    NSURLSession *session = [NSURLSession sharedSession];
     
-    Movie *movie = self.objects[indexPath.row];
-    cell.imageView.image = movie.image;
+    NSURL *imageURL = self.imageURLArray[indexPath.item];
+    cell.downloadTask = [session downloadTaskWithURL:imageURL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            UIImage * downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                Movie *movie = self.objects[indexPath.item];
+                movie.localImageURL = location;
+                cell.imageView.image = downloadedImage;
+            });
+        }
+    }];
+    
+    [cell.downloadTask resume];
+    
     return cell;
 
 }
 
+#pragma mark - Segue
     
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        Movie *movieItem = self.objects[indexPath.row];
+        DetailedViewController *detailedViewController = (DetailedViewController *)[segue destinationViewController];
+        [detailedViewController setMovieItem:movieItem];
+    }
+}
 
 #pragma mark <UICollectionViewDelegate>
 
