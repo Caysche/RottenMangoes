@@ -9,6 +9,7 @@
 #import "DetailedViewController.h"
 #import "Movie.h"
 #import "WebViewController.h"
+#import "MapViewController.h"
 
 @interface DetailedViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -75,6 +76,7 @@
         [dataTask resume];
 
     }
+//    if (self.)
 }
     
     
@@ -93,10 +95,19 @@
     
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showWeb"]) {
+        
         WebViewController *webViewController = (WebViewController *)[segue destinationViewController];
+        
         [webViewController setMovieItem:self.movieItem];
+        
+    } else if ([[segue identifier] isEqualToString:@"showMap"]) {
+        
+        MapViewController *mapViewController = (MapViewController *)[segue destinationViewController];
+        
+        [mapViewController setMovieTitle:self.movieItem.title];
     }
 }
+
 /*
 #pragma mark - Navigation
 

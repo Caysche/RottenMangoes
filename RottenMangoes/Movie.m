@@ -21,6 +21,6 @@
             _iD = iD;
         }
         return self;
-    }
+}
     
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6222C5811D9AFF6E00BF08C8 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6222C5801D9AFF6D00BF08C8 /* LocationManager.m */; };
+		6222C5841D9B002E00BF08C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6222C5831D9B002E00BF08C8 /* MapViewController.m */; };
+		6222C5861D9B1D2E00BF08C8 /* vancouver-gastown.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6222C5851D9B1D2E00BF08C8 /* vancouver-gastown.gpx */; };
+		6222C5891D9B1E2C00BF08C8 /* Theatre.m in Sources */ = {isa = PBXBuildFile; fileRef = 6222C5881D9B1E2C00BF08C8 /* Theatre.m */; };
 		62ADB2A41D99A5E20082BF30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2A31D99A5E20082BF30 /* main.m */; };
 		62ADB2A71D99A5E20082BF30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2A61D99A5E20082BF30 /* AppDelegate.m */; };
 		62ADB2AD1D99A5E20082BF30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62ADB2AB1D99A5E20082BF30 /* Main.storyboard */; };
@@ -20,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6222C57F1D9AFF6D00BF08C8 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		6222C5801D9AFF6D00BF08C8 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		6222C5821D9B002E00BF08C8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6222C5831D9B002E00BF08C8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		6222C5851D9B1D2E00BF08C8 /* vancouver-gastown.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "vancouver-gastown.gpx"; path = "../vancouver-gastown.gpx"; sourceTree = "<group>"; };
+		6222C5871D9B1E2C00BF08C8 /* Theatre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theatre.h; sourceTree = "<group>"; };
+		6222C5881D9B1E2C00BF08C8 /* Theatre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theatre.m; sourceTree = "<group>"; };
 		62ADB29F1D99A5E20082BF30 /* RottenMangoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenMangoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62ADB2A31D99A5E20082BF30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		62ADB2A51D99A5E20082BF30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,14 +85,20 @@
 				62ADB2A61D99A5E20082BF30 /* AppDelegate.m */,
 				62ADB2B91D99A64D0082BF30 /* CustomCollectionViewController.h */,
 				62ADB2BA1D99A64D0082BF30 /* CustomCollectionViewController.m */,
-				62ADB2BF1D99A71F0082BF30 /* DetailedViewController.h */,
-				62ADB2C01D99A71F0082BF30 /* DetailedViewController.m */,
-				62ADB2BC1D99A66D0082BF30 /* Movie.h */,
-				62ADB2BD1D99A66D0082BF30 /* Movie.m */,
 				62ADB2C21D99ADAA0082BF30 /* CustomCollectionViewCell.h */,
 				62ADB2C31D99ADAA0082BF30 /* CustomCollectionViewCell.m */,
+				62ADB2BF1D99A71F0082BF30 /* DetailedViewController.h */,
+				62ADB2C01D99A71F0082BF30 /* DetailedViewController.m */,
+				6222C5821D9B002E00BF08C8 /* MapViewController.h */,
+				6222C5831D9B002E00BF08C8 /* MapViewController.m */,
 				62ADB2C51D99DEBE0082BF30 /* WebViewController.h */,
 				62ADB2C61D99DEBE0082BF30 /* WebViewController.m */,
+				62ADB2BC1D99A66D0082BF30 /* Movie.h */,
+				62ADB2BD1D99A66D0082BF30 /* Movie.m */,
+				6222C5871D9B1E2C00BF08C8 /* Theatre.h */,
+				6222C5881D9B1E2C00BF08C8 /* Theatre.m */,
+				6222C57F1D9AFF6D00BF08C8 /* LocationManager.h */,
+				6222C5801D9AFF6D00BF08C8 /* LocationManager.m */,
 				62ADB2AB1D99A5E20082BF30 /* Main.storyboard */,
 				62ADB2AE1D99A5E20082BF30 /* Assets.xcassets */,
 				62ADB2B01D99A5E20082BF30 /* LaunchScreen.storyboard */,
@@ -94,6 +111,7 @@
 		62ADB2A21D99A5E20082BF30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6222C5851D9B1D2E00BF08C8 /* vancouver-gastown.gpx */,
 				62ADB2A31D99A5E20082BF30 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -159,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62ADB2B21D99A5E20082BF30 /* LaunchScreen.storyboard in Resources */,
+				6222C5861D9B1D2E00BF08C8 /* vancouver-gastown.gpx in Resources */,
 				62ADB2AF1D99A5E20082BF30 /* Assets.xcassets in Resources */,
 				62ADB2AD1D99A5E20082BF30 /* Main.storyboard in Resources */,
 			);
@@ -171,9 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6222C5811D9AFF6E00BF08C8 /* LocationManager.m in Sources */,
 				62ADB2A71D99A5E20082BF30 /* AppDelegate.m in Sources */,
 				62ADB2C71D99DEBE0082BF30 /* WebViewController.m in Sources */,
+				6222C5841D9B002E00BF08C8 /* MapViewController.m in Sources */,
 				62ADB2BB1D99A64D0082BF30 /* CustomCollectionViewController.m in Sources */,
+				6222C5891D9B1E2C00BF08C8 /* Theatre.m in Sources */,
 				62ADB2BE1D99A66D0082BF30 /* Movie.m in Sources */,
 				62ADB2C41D99ADAA0082BF30 /* CustomCollectionViewCell.m in Sources */,
 				62ADB2A41D99A5E20082BF30 /* main.m in Sources */,
