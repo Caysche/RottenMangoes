@@ -16,6 +16,7 @@
 @property (nonatomic) NSString *address;
 @property (nonatomic) NSNumber *lat;
 @property (nonatomic) NSNumber *lng;
+@property (nonatomic) NSNumber *distance;
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly, copy) NSString *title;

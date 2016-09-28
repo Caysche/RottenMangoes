@@ -182,23 +182,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghz-pC-MDN"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghz-pC-MDN">
+                                <connections>
+                                    <outlet property="delegate" destination="93c-Uv-b7f" id="Eca-nU-bYh"/>
+                                </connections>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OWW-zk-F6W">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="theatreCell" id="HTk-g0-BZ2" customClass="MapTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HTk-g0-BZ2" id="kZx-ar-SOk">
+                                            <frame key="frameInset" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPC-mZ-ID6">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theatre Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCv-JR-rPh">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="SZD-OL-kwo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kCv-JR-rPh" secondAttribute="bottom" constant="3" id="0yN-qU-a56"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="RPC-mZ-ID6" secondAttribute="bottom" constant="3" id="DTs-uA-6fS"/>
+                                                <constraint firstItem="RPC-mZ-ID6" firstAttribute="leading" secondItem="kCv-JR-rPh" secondAttribute="trailing" constant="6" id="J7V-wt-Ix8"/>
+                                                <constraint firstItem="kCv-JR-rPh" firstAttribute="top" secondItem="kZx-ar-SOk" secondAttribute="topMargin" constant="3" id="R6t-cP-brp"/>
+                                                <constraint firstItem="kCv-JR-rPh" firstAttribute="leading" secondItem="kZx-ar-SOk" secondAttribute="leadingMargin" constant="8" id="WIc-6W-iS2"/>
+                                                <constraint firstItem="RPC-mZ-ID6" firstAttribute="top" secondItem="kZx-ar-SOk" secondAttribute="topMargin" constant="3" id="v2S-70-LZ7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RPC-mZ-ID6" secondAttribute="trailing" constant="8" id="yVV-uH-Fa6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="RPC-mZ-ID6" id="mFq-cy-JgS"/>
+                                            <outlet property="nameLabel" destination="kCv-JR-rPh" id="LcC-aX-YxY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="93c-Uv-b7f" id="oqZ-Yn-1SG"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OWW-zk-F6W" firstAttribute="leading" secondItem="Tlc-KQ-Rxe" secondAttribute="leadingMargin" id="5If-hx-k0h"/>
                             <constraint firstItem="Ghz-pC-MDN" firstAttribute="top" secondItem="GtD-VD-Ckg" secondAttribute="bottom" id="6kj-em-AtQ"/>
+                            <constraint firstItem="OWW-zk-F6W" firstAttribute="top" secondItem="Ghz-pC-MDN" secondAttribute="bottom" id="70D-0u-kcT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OWW-zk-F6W" secondAttribute="trailing" id="9uC-vn-9sN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ghz-pC-MDN" secondAttribute="trailing" id="E0h-Lv-KPA"/>
                             <constraint firstItem="Ghz-pC-MDN" firstAttribute="leading" secondItem="Tlc-KQ-Rxe" secondAttribute="leadingMargin" id="PbJ-cj-f1E"/>
-                            <constraint firstItem="7BN-Wp-PFF" firstAttribute="top" secondItem="Ghz-pC-MDN" secondAttribute="bottom" id="WYA-3k-wg9"/>
+                            <constraint firstItem="7BN-Wp-PFF" firstAttribute="top" secondItem="OWW-zk-F6W" secondAttribute="bottom" id="xMU-yE-hlc"/>
+                            <constraint firstItem="Ghz-pC-MDN" firstAttribute="height" secondItem="OWW-zk-F6W" secondAttribute="height" id="zYI-65-RZO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Ghz-pC-MDN" id="i27-l8-awx"/>
+                        <outlet property="tableView" destination="OWW-zk-F6W" id="2sL-wl-ob7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcf-CR-qVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231" y="740"/>
+            <point key="canvasLocation" x="2229.5999999999999" y="739.88005997001505"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="pNJ-yT-F5g">

@@ -81,28 +81,22 @@
         
         _locationManager.delegate = self;
         [_locationManager requestWhenInUseAuthorization];
-        NSLog(@"new location Manager in startLocationManager");
         
     }
     
     [_locationManager startUpdatingLocation];
-    NSLog(@"Start Regular Location Manager");
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
     CLLocation * loc = [locations lastObject];
     
-    NSLog(@"Time %@, latitude %+.6f, longitude %+.6f currentLocation accuracy %1.2f loc accuracy %1.2f timeinterval %f",[NSDate date],loc.coordinate.latitude, loc.coordinate.longitude, loc.horizontalAccuracy, loc.verticalAccuracy, fabs([loc.timestamp timeIntervalSinceNow]));
-    
     NSTimeInterval locationAge = -[loc.timestamp timeIntervalSinceNow];
     if (locationAge > 10.0){
-        NSLog(@"locationAge is %1.2f",locationAge);
         return;
     }
     
     if (loc.horizontalAccuracy < 0){
-        NSLog(@"loc.horizontalAccuracy is %1.2f",loc.horizontalAccuracy);
         return;
     }
     
