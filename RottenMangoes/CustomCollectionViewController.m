@@ -76,8 +76,6 @@ static NSString * const reuseIdentifier = @"Cell";
                 
                 Movie* aMovie = [[Movie alloc] initWithTitle:title andURL:url andRuntime:runtime andSynopsis:synopsis andID:iD];
                 
-                NSLog(@"aMovie is %@", aMovie.title);
-                
                 [self.moviesArray addObject:aMovie];
                 [self.imageURLArray addObject:imageURL];
                 

@@ -36,8 +36,6 @@
     _isInitallySetUp = NO;
     _mapView.showsUserLocation = YES;
     
-    self.theatresArray = [NSMutableArray array];
-    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
     
@@ -87,6 +85,8 @@
             
             NSArray *theatres = theatreCollection[@"theatres"];
             
+            self.theatresArray = [NSMutableArray array];
+            
             for (NSDictionary *eachTheatre in theatres){
                 
                 Theatre *aTheatre = [[Theatre alloc] initWithCoordinate:CLLocationCoordinate2DMake([eachTheatre[@"lat"] doubleValue], [eachTheatre[@"lng"] doubleValue]) andTitle:eachTheatre[@"name"] andSubtitle:eachTheatre[@"address"]];
@@ -106,10 +106,15 @@
                 [self.theatresArray addObject:aTheatre];
                 
             }
+            
+            [self sortTheTheatresArray];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 [_mapView addAnnotations:_theatresArray];
-                [self sortTheTheatresArray];
+                
                 [self.tableView reloadData];
+                
             });
             
         }

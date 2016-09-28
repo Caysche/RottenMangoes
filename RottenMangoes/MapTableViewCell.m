@@ -17,14 +17,4 @@
 
 @implementation MapTableViewCell
 
-//-(void)setMovie:(Theatre *)theatre {
-//    _theatre = theatre;
-//    [self setUpCell];
-//}
-
-//-(void)setUpCell {
-//    self.nameLabel.text = self.theatre.name;
-//    self.distanceLabel.text = @"11";
-//}
-
 @end
